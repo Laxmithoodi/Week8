@@ -1,0 +1,32 @@
+DEPENDENCIES
+Classes often depend on other classes for some functionality
+Dependencies can be provided (injected) from other sources as well
+
+
+DEPENDENCY INJECTION
+DEPENDENCIES
+Classes often depend on other classes for some functionality
+Dependencies can be provided (injected) from other sources as well
+MANUAL DEPENDENCY MANAGEMENT
+public class Instructor{
+
+    Cohort students;
+    RosterManager rm;
+
+    public Instructor(){
+        rm = RosterManager.getInstance();
+        students = new Cohort(rm.getRoster("April 2017"));
+    }
+
+}
+CONSTRUCTOR INJECTION EXAMPLE
+public class Instructor{
+
+    Cohort students; // We could also inject this
+    RosterManager rm;
+
+    public Instructor(RosterManager rm){
+        this.rm = rm;
+        students = new Cohort(rm.getRoster("April 2017"));
+    }
+}
